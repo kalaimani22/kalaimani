@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Route, Routes, Navigate} from 'react-rou
 
 import Home from './pages/home';
 import About from './pages/about';
+import Learning from './pages/learning';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         <li>
           <Link to="about">about</Link>
         </li>
+        <li>
+          <Link to="learning">learning</Link>
+        </li>
       </ul>
     </nav>
     </header>
@@ -33,6 +37,8 @@ function App() {
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="learning" element={<Learning />} />
+
         <Route
       path="*"
       element={<Navigate to="/" />}
