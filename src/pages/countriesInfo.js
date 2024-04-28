@@ -4,18 +4,18 @@ const CountriesInfo = () => {
   const [country, setCountry] = useState("india");
   const [countryInfo, setCountryInfo] = useState();
 
-  const countryEvent = () => {
-    fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((res) => {
-        console.log(res);
-        setCountryInfo(res[0]);
-      });
-  };
-
   useEffect(() => {
+    const countryEvent = () => {
+      fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
+        .then((res) => {
+          return res.json();
+        })
+        .then((res) => {
+          console.log(res);
+          setCountryInfo(res[0]);
+        });
+    };
+
     countryEvent();
   }, [country]);
 
@@ -29,7 +29,7 @@ const CountriesInfo = () => {
       />
       <ul>
         <li>
-          <img src={countryInfo?.coatOfArms.svg} />
+          <img alt="country icon" src={countryInfo?.coatOfArms.svg} />
         </li>
       </ul>
     </React.Fragment>
